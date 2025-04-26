@@ -186,4 +186,53 @@
 //     }
 // }
 
-//
+//ABSTRACT CLASS 
+ 
+// abstract class Animal{ //Abstract class
+//     abstract void eats();//Must provide abtract before void
+
+//     void sound(){
+//         System.out.println("Animal makes a sound");
+//     }
+// }
+// class Dog extends Animal{
+//     void eats(){
+//         System.out.println("Dog Barks");
+//     }
+//     void sound(){
+//         System.out.println("Barks..");
+//     }
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Animal obj1 = new Dog(); //can't create a obj of abstract class so Dog
+//         obj1.sound();
+//         obj1.eats();
+//     }
+// }
+
+//INTERFACE 
+
+interface Animal{
+    void eats();
+
+    default void sound(){
+        System.out.println("Animal makes sound");
+    }
+    
+}
+class Dog implements Animal{
+    public void eats(){
+        System.out.println("Dog eats..");
+    }
+    public void sound(){
+        System.out.println("Dog Barks..");
+    }
+}
+class Exam{
+    public static void main(String args[]){
+        Animal obj1 = new Dog();
+        obj1.eats();
+        obj1.sound();
+    }
+}
