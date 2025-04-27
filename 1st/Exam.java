@@ -186,21 +186,33 @@
 //     }
 // }
 
+//===============================================================
 //ABSTRACT CLASS 
- 
+//===============================================================
+
 // abstract class Animal{ //Abstract class
 //     abstract void eats();//Must provide abtract before void
 
 //     void sound(){
 //         System.out.println("Animal makes a sound");
 //     }
+//     Animal(){//constructor called first
+//         System.out.println("Animal constructor is called..");
+//     }
+//     int a = 12;
+    
 // }
 // class Dog extends Animal{
 //     void eats(){
 //         System.out.println("Dog Barks");
 //     }
 //     void sound(){
+//         // super.sound();//To call and print sound in abstract class
 //         System.out.println("Barks..");
+//     }
+//     Dog(){ // constructor called first
+//         System.out.println("Constructor called for Dog");
+//         System.out.println(a+2);//This is only possible in Abstract 
 //     }
 // }
 // class Exam{
@@ -208,31 +220,155 @@
 //         Animal obj1 = new Dog(); //can't create a obj of abstract class so Dog
 //         obj1.sound();
 //         obj1.eats();
+//         System.out.println(obj1.a);//We need obj to print a in main class
+        
 //     }
 // }
 
+
+//===============================================================
 //INTERFACE 
+//===============================================================
 
-interface Animal{
-    void eats();
+// interface Animal{
+//     void eats();
 
-    default void sound(){
-        System.out.println("Animal makes sound");
-    }
+//     default void sound(){
+//         System.out.println("Animal makes sound");
+//     }
     
-}
-class Dog implements Animal{
-    public void eats(){
-        System.out.println("Dog eats..");
-    }
-    public void sound(){
-        System.out.println("Dog Barks..");
-    }
-}
+// }
+// class Dog implements Animal{
+//     public void eats(){
+//         System.out.println("Dog eats..");
+//     }
+//     public void sound(){
+//         System.out.println("Dog Barks..");
+//     }
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Animal obj1 = new Dog();
+//         obj1.eats();
+//         obj1.sound();
+//     }
+// }
+
+//MULTIPLE INHERITANCE 
+
+// interface Fly{
+//     void flyies();
+//     int a = 100;//public static final variable
+// }
+// interface Swim{
+//     void swims();
+// }
+// class Duck implements Fly,Swim{ //This is not possible in Abstract class
+//     public void flyies(){
+//         System.out.println("Duck can fly");
+//     }
+//     public void swims(){
+//         System.out.println("Duck can swim");
+//         System.out.println(a);
+        
+//     }
+   
+// }
+
+// class Exam{
+//     public static void main(String args[]){
+//         Fly obj1 = new Duck();
+//         Swim obj2 = new Duck();
+//         obj1.flyies();
+//         obj2.swims();
+
+//         System.out.println(Fly.a);//can print a from anywhere directly without obj
+//     }
+// }
+
+
+//==============================================================
+//String
+//==============================================================
+// class Exam{
+//     public static void main (String args[]){
+//         String s1 = "Hello";
+//         String s2 = s1;
+
+//         s1 =  s1.concat("World");
+//         System.out.println(s1);
+//         System.out.println(s2);
+      
+//     }
+// }
+
+
+
+// class Exam{
+//     public static void main(String args[]){
+//         String s1 = new String("Hello");
+//         String s2 = new String ("World");
+//         System.out.println(s1);
+//         System.out.println(s2);
+//     }
+// }
+
+//=============================================================
+//Wrapper Class
+//=============================================================
+// class Exam{
+//     public static void main(String args[]){
+//         int a ;
+//         a = 234;
+//         Integer b; //Integer is wrapper class ,b is reference
+//         b = a;
+//         System.out.println(a);
+//         System.out.println(b);
+//     }
+// }
+
+//Autoboxing
+/*WHY b == c is true?
+ * When you assign b = 12; and c = 12;, Java doesn't create two different Integer objects for both b and c. Instead, it uses the cached Integer object with the value 12 that already exists in the heap.
+
+This means that both b and c point to the exact same object in memory, and that's why the == operator checks that they refer to the same memory location and returns true.
+
+THIS WILL ONLY BE TRUE IF VALUES RANGE FROM -128 to 127
+(like when values fall within the cached range for wrapper classes)
+ */
+// class Exam{
+//     public static void main(String args[]){
+//         int a = 12;
+//         Integer b = a;
+//         Integer c = 12;
+
+//         System.out.println(b == c);      //True
+//         System.out.println(b.equals(c)); //True
+//     }
+// }
+
+// class Exam{
+//     public static void main(String args[]){
+//         int a = 300;
+//         Integer b = a;
+//         Integer c = 300;
+
+//         System.out.println(b == c);     //False
+//         System.out.println(b.equals(c));//True
+//     }
+// }
+
+//Unboxing 
+
 class Exam{
     public static void main(String args[]){
-        Animal obj1 = new Dog();
-        obj1.eats();
-        obj1.sound();
+        Integer a = 12;  //Wrapper class object has 12 
+        Double z = 50.6; //Wrapper class object has 50.6
+
+        int b = a;  // Unboxing Wrapper class into primitive class int
+        double y = z; //// Unboxing Wrapper class into primitive class dou
+
+        System.out.println(b);
+        System.out.println(y);
     }
 }
