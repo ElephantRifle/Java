@@ -1,3 +1,4 @@
+import java.util.Scanner;
 //OVERLOADING
 // class Overload{
 //     int add(int a ,int b){
@@ -360,15 +361,305 @@ THIS WILL ONLY BE TRUE IF VALUES RANGE FROM -128 to 127
 
 //Unboxing 
 
+// class Exam{
+//     public static void main(String args[]){
+//         Integer a = 12;  //Wrapper class object has 12 
+//         Double z = 50.6; //Wrapper class object has 50.6
+
+//         int b = a;  // Unboxing Wrapper class into primitive class int
+//         double y = z; //// Unboxing Wrapper class into primitive class dou
+
+//         System.out.println(b);
+//         System.out.println(y);
+//     }
+// }
+
+//===========================================================
+//Reference Type
+//===========================================================
+// class Car{
+//     String name;
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         String s1 = "Hello"; //s1 a ref to object in heap that has Hello
+//         Car obj1 = new Car();//obj1 ref to obj in heap that has Car
+//         obj1.name = "Honda";
+//         System.out.println(obj1.name);
+//     }
+// }
+
+//Object Type
+// class Book{
+//     String name;
+// }
+// Class Toy{
+
+// } 
+// class Exam{
+//     public static void main(String args[]){
+//         Object box1 = new Book();
+//         Object box2 = new Toy();
+//         Object box3 = new Laptop();
+
+//         Book mybook = (Book)box1;
+//         mybook.name("Harry Porter");
+
+//         Toy mytoy = (Toy)box2;
+
+//     }
+// }
+
+//===============================================================
+//Constructor
+//===============================================================
+//Default Constructor
+// class Dog{
+//     String name;
+//     int age;
+//     Dog(){
+//         System.out.println("Dog eats");
+//         name = "Pari";
+//         age = 12;
+//     }
+//     void display(){
+//         System.out.println("Name " + name + ", Age" + age);
+//     }
+    
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Dog obj1 = new Dog();
+//         obj1.display();
+//     }
+// }
+
+//Parameterized Constructor
+
+// class Person{
+//     String name;
+//     int age = 23;
+//     Person(String name,int age){
+//         System.out.println("Name: "+name+", Age:"+age);
+//     }
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Person p = new Person("paritosh",23);
+//     }
+// }
+
+//Constructor Overloading
+
+// class Person{
+//     Person(){
+//         System.out.println("Empty");
+//     }
+//     Person(int a,int b){
+//         System.out.println("a="+a+" b="+b);
+//     }
+//     Person(int a,int b,int c){
+//         System.out.println("a = "+a+" b = "+b+" c = "+c);
+//     }
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Person p = new Person();
+//         Person p1 = new Person(12,4);
+//         Person p2 = new Person(3,4,5);
+//     }
+// }
+
+//============================================================
+
+// class Person{
+//     String name;
+//     int age;
+//     Person(){
+//         this.name = "Empty";
+//         this.age = 0;
+//     }
+//     Person(String name){
+//         this.name = name;
+//     }
+//     Person(String name,int age){
+//         this.name = name;
+//         this.age = age;
+//     }
+//     void display(){
+//         System.out.println("Name = "+name + "  Age = " + age);
+//     }
+
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Person p = new Person();
+//         Person p1 = new Person("Rudra");
+//         Person p2 = new Person("Priya",23);
+//         p.display();
+//         p1.display();
+//         p2.display();
+
+//     }
+// }
+
+//
+
+//==================================================================
+//Exception
+//==================================================================
+//Single Catch 
+// class Exam{
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+        
+//         try{
+//             System.out.print("->");
+//             int num = sc.nextInt();
+            
+//             System.out.println("Result : "+(10/num));
+//         }catch(ArithmeticException a){
+//             System.out.println("Error Division by zero");
+//         }finally{
+//             System.out.println("End of Program");
+//             sc.close();
+//         }
+//     }
+//}
+
+//Multiple Catch
+
+// class Exam {
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+
+//         try{
+//             System.out.print("->");
+//             int num = sc.nextInt();
+//             System.out.println("Result: "+100/num);
+
+//         }catch(ArithmeticException a){
+//             System.out.println("Error:Division by zero");
+
+//         }catch(java.util.InputMismatchException b){
+//             System.out.println("Error:Invalid input");
+
+//         }finally{
+//             System.out.println("End of Program");
+//             sc.close();
+//         }
+//     }
+// }
+
+
+
+//User Defined Exception
+
+// class InvalidAgeException extends Exception{
+//     public InvalidAgeException(String message){
+//         super(message);
+//     }
+// }
+
+// class Exam{
+//     public static void main(String args[]){
+//         Scanner sc = new Scanner(System.in);
+//         int arr[] = new int[5];
+
+//         for(int i = 0;i < 5;++i){
+//             try{
+//                 System.out.print("Enter age for " +(i+1)+" person-> ");
+//                 int age = sc.nextInt();
+
+//                 if(age <= 0 || age >= 101){
+//                     throw new InvalidAgeException("Invalid age "+ age);
+//                 }
+//                 arr[i] = age;
+//             }catch(InvalidAgeException a){
+//                 System.out.println(a.getMessage());
+//                 i--;
+//             }catch(Exception a){
+//                 System.out.println("Invalid Input");
+//                 sc.next();
+//                 i--;
+//             }
+//         }
+//         System.out.println("Age's are: ");
+//         for(int i = 0;i < 5;++i){
+//             System.out.print(arr[i]+ " ");
+//         }
+//         sc.close();
+//     }
+// }
+
+//===========================================================================
+//Multi - threading
+//===========================================================================
+
+// class Mythread extends Thread{
+//     public void run(){
+//         System.out.println("Thread Created");
+//     }
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Mythread t1 = new Mythread();
+//         t1.start();
+//         t1.run();
+//     }
+// }
+
+//Runnable Interface
+
+// class Myclass implements Runnable{
+//     public void run(){
+//         System.out.println("Runnable implemented");
+//     }
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Myclass c1 = new Myclass();
+//         Thread t1 = new Thread(c1);
+//         t1.start();
+//     }
+// }
+
+//===============================================================
+//Abstraction
+//===============================================================
+
+// abstract class Animal{
+//     abstract void sound(); // abstract is essential else its not abstraction
+// }
+// class Dog extends Animal{
+//     void sound(){
+//         System.out.println("Dog woof woof");
+//     }
+// }
+// class Exam{
+//     public static void main(String args[]){
+//         Animal a = new Dog();
+//         a.sound();
+//     }
+// }
+
+//Encapsulation
+
+class encap{
+    private double balance;
+
+    public double getbalance(){
+        return balance;
+    }
+    public void deposit(double depo){
+        this.balance = depo + balance;
+    }
+}
+
 class Exam{
     public static void main(String args[]){
-        Integer a = 12;  //Wrapper class object has 12 
-        Double z = 50.6; //Wrapper class object has 50.6
-
-        int b = a;  // Unboxing Wrapper class into primitive class int
-        double y = z; //// Unboxing Wrapper class into primitive class dou
-
-        System.out.println(b);
-        System.out.println(y);
+        encap a = new encap();
+        a.deposit(12000);
+        a.getbalance();
     }
 }
