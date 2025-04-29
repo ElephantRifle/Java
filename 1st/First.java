@@ -392,6 +392,57 @@ Perform the following operations:
 
 //Write a Java program to print a string in reverse order without using any pre-defined string function. For eg print FLAT as TALF.
 
-class First{
-    
+// class First{
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         // Input a string
+//         System.out.print("Enter a string: ");
+//         String str = sc.nextLine();
+
+//         System.out.print("Reversed string: ");
+//         // Loop from last character to first
+//         for (int i = str.length() - 1; i >= 0; i--) {
+//             System.out.print(str.charAt(i));
+//         }
+//     }
+// }
+
+
+//We have Two one-dimensional arrays X and Y which are sorted in descending order, write a program to merge them into a single sorted array Z that contains every item from arrays X and Y in descending order.
+
+public class First {
+    public static void main(String[] args) {
+        int[] X = {90, 75, 60, 50};  // Descending
+        int[] Y = {85, 70, 65, 40};  // Descending
+
+        int n = X.length;
+        int m = Y.length;
+        int[] Z = new int[n + m];
+
+        // Step 1: Copy all elements of X and Y into Z
+        for (int i = 0; i < n; i++) {
+            Z[i] = X[i];
+        }
+        for (int i = 0; i < m; i++) {
+            Z[n + i] = Y[i];
+        }
+
+        // Step 2: Sort Z in descending order using simple selection sort
+        for (int i = 0; i < Z.length - 1; i++) {
+            for (int j = i + 1; j < Z.length; j++) {
+                if (Z[i] < Z[j]) {
+                    int temp = Z[i];
+                    Z[i] = Z[j];
+                    Z[j] = temp;
+                }
+            }
+        }
+
+        // Step 3: Print the merged and sorted array
+        System.out.println("Merged and sorted array (descending):");
+        for (int val : Z) {
+            System.out.print(val + " ");
+        }
+    }
 }
