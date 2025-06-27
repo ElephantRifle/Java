@@ -506,9 +506,9 @@ THIS WILL ONLY BE TRUE IF VALUES RANGE FROM -128 to 127
 //
 
 //==================================================================
-//Exception
-//==================================================================
-//Single Catch 
+// Exception
+// ==================================================================
+// Single Catch 
 // class Exam{
 //     public static void main(String args[]){
 //         Scanner sc = new Scanner(System.in);
@@ -525,9 +525,9 @@ THIS WILL ONLY BE TRUE IF VALUES RANGE FROM -128 to 127
 //             sc.close();
 //         }
 //     }
-//}
+// }
 
-//Multiple Catch
+// Multiple Catch
 
 // class Exam {
 //     public static void main(String args[]){
@@ -553,7 +553,7 @@ THIS WILL ONLY BE TRUE IF VALUES RANGE FROM -128 to 127
 
 
 
-//User Defined Exception
+// User Defined Exception
 
 // class InvalidAgeException extends Exception{
 //     public InvalidAgeException(String message){
@@ -645,21 +645,245 @@ THIS WILL ONLY BE TRUE IF VALUES RANGE FROM -128 to 127
 
 //Encapsulation
 
-class encap{
-    private double balance;
+// class encap{
+//     private double balance;
 
-    public double getbalance(){
-        return balance;
-    }
-    public void deposit(double depo){
-        this.balance = depo + balance;
-    }
-}
+//     public double getbalance(){
+//         return balance;
+//     }
+//     public void deposit(double depo){
+//         this.balance = depo + balance;
+//     }
+// }
 
-class Exam{
-    public static void main(String args[]){
-        encap a = new encap();
-        a.deposit(12000);
-        a.getbalance();
-    }
-}
+// class Exam{
+//     public static void main(String args[]){
+//         encap a = new encap();
+//         a.deposit(12000);
+//         a.getbalance();
+//     }
+// }
+
+
+//---------------------------------------------------------
+//Collection Framework
+
+import java.util.ArrayList;
+//LIST -Ordered Allows Duplicate elements ,indexed
+   //ArrayList
+   //LinkedList
+   //Vector
+
+// public class Exam{
+//    public static void main(String args[]){
+//       ArrayList<Integer> list = new ArrayList<>();
+//       list.add(1);//This will add element at the end
+//       list.add(2);
+//       list.add(3);
+//       list.add(4);
+//       list.add(1,50);
+//       System.out.println(list);
+//       //Add One List to Another
+//       ArrayList<Integer>newList = new ArrayList<>();
+//       newList.add(200);
+//       newList.add(300);
+//       list.addAll(newList);
+//       System.out.println(list);
+      
+//       //To get value at any Index
+//       System.out.println(list.get(1));
+      
+//       //Remove elemet at that Index
+//       list.remove(2);
+//       System.out.println(list);
+      
+//       //To clear Entire List 
+//       // list.clear();
+
+//       //To Update the value of any Index
+//       list.set(0,500);
+//       System.out.println(list);
+//       System.out.println(list.contains(500));
+//    }
+// }   
+
+
+//----------------------------------------
+//Stack
+// import java.util.Stack;
+// public class Exam{
+//    public static void main(String args[]){
+//       Stack <String> animals = new Stack<>();
+//       animals.push("Lion");
+//       animals.push("Tiger");
+//       animals.push("Elephant");
+
+//       System.out.println("Stack->"+animals);
+//       System.out.println(animals.peek());//To look the last 
+      
+//       animals.pop();
+//       System.out.println("Stack->"+animals);
+
+//    }
+// }
+//---------------------------------------------------
+//Queue
+// import java.util.Queue;
+// import java.util.LinkedList;
+// class Exam{
+//    public static void main(String args[]){
+//       Queue<Integer> queue = new LinkedList<>();
+//       queue.offer(12); // To add ELement in Queue
+//       queue.offer(10);
+//       queue.offer(15);
+
+//       System.out.println(queue);
+//       System.out.println(queue.poll());//To Remove Elements
+//       System.out.println(queue);
+//       System.out.println(queue.peek());//Next Element to pop
+
+//    }
+// }
+//------------------------------------------------------------
+
+//SET:
+     //HashSet
+     //TreeSet
+     //LinkedHashSet
+//No Duplicate Elements Allowed
+/*Not Ordered means elements are being stored in random place
+WHY? cuz Internally hashing is going on,set create hash of
+each Elements and that hash if being pushed in the bag.Each Elements hash is unique,it check when adding the value if there is a duplicate hash presnt then it won't allow that value to be stored
+
+*/
+// import java.util.Set;
+// import java.util.HashSet;
+
+// public class Exam{
+//    public static void main (String args[]){
+//       Set<Integer> set = new HashSet<>();
+//       set.add(10);
+//       set.add(20);
+//       set.add(30);
+//       set.add(40);
+//       set.add(50);
+      
+//       System.out.println(set);
+//       set.remove(1);
+//       System.out.println(set);
+//       System.out.println(set.contains(22));
+//       System.out.println(set.isEmpty());
+//       System.out.println(set.size());
+//       set.clear();
+//    }
+// }
+
+//LinkedHashSet ->its is ordered everting else if same as //Hashset
+
+// import java.util.Set;
+// import java.util.LinkedHashSet;
+
+// public class Exam{
+//    public static void main (String args[]){
+//       Set<Integer> set = new LinkedHashSet<>();
+//       set.add(10);
+//       set.add(20);
+//       set.add(30);
+//       set.add(40);
+//       set.add(50);
+      
+//       System.out.println(set);
+//       set.remove(1);
+//       System.out.println(set);
+//       System.out.println(set.contains(22));
+//       System.out.println(set.isEmpty());
+//       System.out.println(set.size());
+//       set.clear();
+//    }
+// }
+
+//Tree Set->behind the scene sorts the elements (BST)
+
+// import java.util.Set;
+// import java.util.TreeSet;
+
+// public class Exam{
+//    public static void main (String args[]){
+//       Set<Integer> set = new TreeSet<>();
+//       set.add(10);
+//       set.add(20);
+//       set.add(30);
+//       set.add(40);
+//       set.add(50);
+      
+//       System.out.println(set);
+//       set.remove(10);
+//       System.out.println(set);
+//       System.out.println(set.contains(22));
+//       System.out.println(set.isEmpty());
+//       System.out.println(set.size());
+//       set.clear();
+//    }
+// }
+
+//------------------------------------------------------
+//MAP:
+    //HashMap
+    //TreeMap
+    //LinkedHashMap
+//Maps are used to store key value pair
+//Keys should be unique or else it will override
+//Radomly Ordered 
+
+// import java.util.HashMap;
+// import java.util.Map;
+// public class Exam{
+//    public static void main(String args[]){
+//       Map<String,Integer> numbers = new HashMap<>();
+//       //CAN OVERRIDE VALUES IF SAME KEY IS USED
+//       numbers.put("One",1);// output  One=1
+//       numbers.put("Two",2);
+//       numbers.put("Three",3);
+//       System.out.println(numbers);
+      
+//       System.out.println(numbers.containsValue(3));
+//       //NO OVERRIDE OF KEYS IF USED putifAbsent
+//       numbers.putIfAbsent("Two",23);
+//       System.out.println(numbers);
+
+//       //TO ITERATE 
+//       for(String key:numbers.keySet()){
+//          System.out.println(key);
+//       }
+//       numbers.clear();
+//    }
+// }
+
+//--------------------------------------------
+//TreeMap - will sort the keys using alphabetical order 
+
+// import java.util.TreeMap;
+// import java.util.Map;
+// public class Exam{
+//    public static void main(String args[]){
+//       Map<String,Integer> numbers = new TreeMap<>();
+//       //CAN OVERRIDE VALUES IF SAME KEY IS USED
+//       numbers.put("One",1);// output  One=1
+//       numbers.put("Two",2);
+//       numbers.put("Three",3);
+//       System.out.println(numbers);
+      
+//       System.out.println(numbers.containsValue(3));
+//       //NO OVERRIDE OF KEYS IF USED putifAbsent
+//       numbers.putIfAbsent("Two",23);
+//       System.out.println(numbers);
+//       //TO REMOVE VALUSE
+//       numbers.remove("three");
+//       //TO ITERATE 
+//       for(String key:numbers.keySet()){
+//          System.out.println(key);
+//       }
+//       numbers.clear();
+//    }
+// }
+
